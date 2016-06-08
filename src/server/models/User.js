@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
       'Please make your password longer',
     ],
   },
-  score: Number,
+  scoreTotal: Number,
 }, { timestamps: true });
 
 UserSchema.pre('save', function hashPassword(next) {
@@ -26,6 +26,7 @@ UserSchema.pre('save', function hashPassword(next) {
   return cipher(this.password, 5).bind(this)
     .then(hash => {
       this.password = hash;
+      this.scoreTotal = 0;
       next();
     });
 });
