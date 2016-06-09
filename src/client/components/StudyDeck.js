@@ -8,7 +8,7 @@ class StudyDeck extends React.Component {
     super(props);
     this.loadCard = this.loadCard.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
-    console.log('props in StudyDeck - ', this.props);
+    //console.log('props in StudyDeck - ', this.props);
   }
 
   componentWillMount() {
@@ -21,8 +21,8 @@ class StudyDeck extends React.Component {
   }
 
   handlePlay(play, rank) {
+    this.props.receiveScore(rank);
     this.props.savePlay(play, rank)
-      .then(() => this.props.receiveScore)
       .then(() => this.loadCard());
   }
 
