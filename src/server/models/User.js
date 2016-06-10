@@ -18,7 +18,10 @@ const UserSchema = new mongoose.Schema({
       'Please make your password longer',
     ],
   },
-  scoreTotal: Number,
+  scoreTotal: {
+    type: Number,
+    default: 0,
+  }
 }, { timestamps: true });
 
 UserSchema.pre('save', function hashPassword(next) {
