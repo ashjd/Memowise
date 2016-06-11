@@ -5,6 +5,7 @@ import Score from '../containers/Score';
 const Decks = ({ decks, score }) => (
   <div className="container">
     <h4 className="center grey-text text-darken-4"> Decks </h4>
+    <Score />
     <div className="card-list">
       <div className="card-columns">
         {decks.map((deck, idx) => { 
@@ -18,7 +19,6 @@ const Decks = ({ decks, score }) => (
           )}
       </div>
     </div>
-    <Score />
   </div>
 );
 
